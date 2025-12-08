@@ -1,3 +1,8 @@
+"use client"
+
+import Link from "next/link"
+import { RiLineChartLine, RiBookOpenLine, RiTeamLine, RiTrophyLine } from "react-icons/ri"
+
 export default function Hero() {
   return (
     <section className="py-20 md:py-28" style={{ backgroundColor: "#ffffff" }}>
@@ -7,41 +12,43 @@ export default function Hero() {
             <div className="mb-6 inline-block">
               <span
                 className="px-4 py-2 rounded-full text-sm font-medium"
-                style={{ backgroundColor: "#f4f4f4", color: "#0056b3" }}
+                style={{ backgroundColor: "#f4f4f4", color: "#0063b3" }}
               >
-                Complete Platform Architecture
+                India's #1 Financial Education Platform
               </span>
             </div>
 
-            <h1 className="mb-6">Intelligent Finance for the Future</h1>
+            <h1 className="mb-6">Master Trading with Confidence</h1>
 
             <p className="text-lg mb-8 leading-relaxed" style={{ color: "#6b7280" }}>
-              Discover how Fintrix integrates education, trading simulation, community engagement, and advanced
-              analytics into one cohesive platform. Learn the architecture behind the intelligence.
+              Learn trading, practice with ₹10L virtual money, compete with peers, and earn certificates.
+              Join 25,000+ learners mastering the stock market with Fintrix.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                className="px-6 py-3 rounded-lg font-medium transition-all"
-                style={{ backgroundColor: "#0056b3", color: "#ffffff" }}
+              <Link
+                href="/auth/register"
+                className="px-6 py-3 rounded-lg font-medium transition-all text-center hover:opacity-90"
+                style={{ backgroundColor: "#0063b3", color: "#ffffff" }}
               >
-                View Full Sitemap
-              </button>
-              <button
-                className="px-6 py-3 rounded-lg font-medium border-2 transition-all"
+                Start Learning Free
+              </Link>
+              <Link
+                href="/dashboard"
+                className="px-6 py-3 rounded-lg font-medium border-2 transition-all text-center hover:bg-gray-50"
                 style={{ backgroundColor: "#ffffff", color: "#222222", borderColor: "#222222" }}
               >
-                Download Structure
-              </button>
+                Explore Dashboard
+              </Link>
             </div>
 
             <div className="mt-12 grid grid-cols-3 gap-6">
               <div>
-                <p className="text-3xl font-bold" style={{ color: "#0056b3" }}>
-                  15+
+                <p className="text-3xl font-bold" style={{ color: "#0063b3" }}>
+                  25K+
                 </p>
                 <p className="text-sm" style={{ color: "#6b7280" }}>
-                  Major Modules
+                  Active Learners
                 </p>
               </div>
               <div>
@@ -49,36 +56,53 @@ export default function Hero() {
                   50+
                 </p>
                 <p className="text-sm" style={{ color: "#6b7280" }}>
-                  Features
+                  Expert Courses
                 </p>
               </div>
               <div>
                 <p className="text-3xl font-bold" style={{ color: "#222222" }}>
-                  100%
+                  95%
                 </p>
                 <p className="text-sm" style={{ color: "#6b7280" }}>
-                  Integrated
+                  Success Rate
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-lg p-8 h-96 flex items-center justify-center" style={{ backgroundColor: "#f4f4f4" }}>
-            <div className="text-center">
-              <svg
-                className="w-24 h-24 mx-auto mb-4 opacity-20"
-                style={{ color: "#0056b3" }}
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 3H5a2 2 0 00-2 2v4m0 0H3m4 0V3m0 4v4a2 2 0 002 2h4m0 0h4a2 2 0 002-2v-4m0 0h2m-2 0v-4a2 2 0 00-2-2h-4m0 0H9m0 4h4m0 0v4a2 2 0 01-2 2H9m0-4H5a2 2 0 01-2-2V7"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-              </svg>
-              <p style={{ color: "#6b7280" }}>Interactive Platform Visualization</p>
+          <div className="rounded-xl p-8 h-96 flex items-center justify-center" style={{ backgroundColor: "#f4f4f4" }}>
+            <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+              <Link href="/courses" className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow text-center group">
+                <div className="w-12 h-12 bg-[#0063b3]/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-[#0063b3]/20 transition-colors">
+                  <RiBookOpenLine className="w-6 h-6 text-[#0063b3]" />
+                </div>
+                <p className="font-medium text-[#222222]">Courses</p>
+                <p className="text-xs text-[#6b7280] mt-1">50+ Expert Courses</p>
+              </Link>
+
+              <Link href="/simulator" className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow text-center group">
+                <div className="w-12 h-12 bg-[#28a745]/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-[#28a745]/20 transition-colors">
+                  <RiLineChartLine className="w-6 h-6 text-[#28a745]" />
+                </div>
+                <p className="font-medium text-[#222222]">Simulator</p>
+                <p className="text-xs text-[#6b7280] mt-1">₹10L Virtual Capital</p>
+              </Link>
+
+              <Link href="/community" className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow text-center group">
+                <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-500/20 transition-colors">
+                  <RiTeamLine className="w-6 h-6 text-purple-500" />
+                </div>
+                <p className="font-medium text-[#222222]">Community</p>
+                <p className="text-xs text-[#6b7280] mt-1">25K+ Traders</p>
+              </Link>
+
+              <Link href="/gamification/challenges" className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow text-center group">
+                <div className="w-12 h-12 bg-[#f59e0b]/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-[#f59e0b]/20 transition-colors">
+                  <RiTrophyLine className="w-6 h-6 text-[#f59e0b]" />
+                </div>
+                <p className="font-medium text-[#222222]">Challenges</p>
+                <p className="text-xs text-[#6b7280] mt-1">Compete & Win</p>
+              </Link>
             </div>
           </div>
         </div>
