@@ -27,7 +27,7 @@ import {
     PolarAngleAxis,
     Radar,
 } from "recharts";
-import { portfolioHoldings } from "@/lib/mock-data";
+import { holdings } from "@/lib/mock-data";
 
 const riskMetrics = {
     overallScore: 72,
@@ -226,14 +226,14 @@ export default function PortfolioAnalysisPage() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {portfolioHoldings.slice(0, 5).map((holding) => (
+                                    {holdings.slice(0, 5).map((holding) => (
                                         <tr key={holding.symbol} className="border-b border-[#e5e7eb] hover:bg-[#f4f4f4]">
                                             <td className="py-4 px-4">
                                                 <p className="font-medium text-[#222222]">{holding.symbol}</p>
                                                 <p className="text-sm text-[#6b7280]">{holding.name}</p>
                                             </td>
                                             <td className="py-4 px-4 text-right font-medium">
-                                                {(((holding.currentValue) / 1240000) * 100).toFixed(1)}%
+                                                {(((holding.current) / 1240000) * 100).toFixed(1)}%
                                             </td>
                                             <td className="py-4 px-4 text-center">
                                                 <Badge variant="secondary">Medium</Badge>

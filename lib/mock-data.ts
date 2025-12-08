@@ -630,9 +630,13 @@ export const pricingPlans = [
 export const adminStats = {
     totalUsers: 45678,
     activeUsers: 12450,
+    activeCourses: 24,
     totalCourses: 24,
     totalQuizzes: 156,
     totalTrades: 234567,
+    tradesToday: 3456,
+    certificatesIssued: 1234,
+    newUsersThisMonth: 1580,
     monthlyRevenue: 2345000,
     newUsersToday: 234,
     coursesCompleted: 8920,
