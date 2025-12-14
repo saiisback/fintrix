@@ -91,6 +91,7 @@ export default function AssessmentsPage() {
                         <TabsTrigger value="quizzes">Unit Quizzes</TabsTrigger>
                         <TabsTrigger value="ai-quiz">AI Quiz</TabsTrigger>
                         <TabsTrigger value="stage-tests">Stage Tests</TabsTrigger>
+                        <TabsTrigger value="weekly-challenges">Weekly Challenges</TabsTrigger>
                     </TabsList>
 
                     <TabsContent value="quizzes">
@@ -104,10 +105,10 @@ export default function AssessmentsPage() {
                                             </div>
                                             <Badge
                                                 className={`${quiz.difficulty === "Easy"
-                                                        ? "bg-[#28a745]"
-                                                        : quiz.difficulty === "Medium"
-                                                            ? "bg-[#f59e0b]"
-                                                            : "bg-red-500"
+                                                    ? "bg-[#28a745]"
+                                                    : quiz.difficulty === "Medium"
+                                                        ? "bg-[#f59e0b]"
+                                                        : "bg-red-500"
                                                     } text-white`}
                                             >
                                                 {quiz.difficulty}
@@ -196,10 +197,12 @@ export default function AssessmentsPage() {
                                         </div>
                                     </div>
 
-                                    <Button size="lg" className="bg-[#0063b3] hover:bg-[#0063b3]/90">
-                                        <RiRobot2Line className="w-5 h-5 mr-2" />
-                                        Generate My Quiz
-                                    </Button>
+                                    <Link href="/assessments/ai-quiz">
+                                        <Button size="lg" className="bg-[#0063b3] hover:bg-[#0063b3]/90">
+                                            <RiRobot2Line className="w-5 h-5 mr-2" />
+                                            Generate My Quiz
+                                        </Button>
+                                    </Link>
                                 </div>
                             </CardContent>
                         </Card>
@@ -217,10 +220,10 @@ export default function AssessmentsPage() {
                                             <div className="flex items-center gap-3">
                                                 <div
                                                     className={`w-12 h-12 rounded-xl flex items-center justify-center ${test.completed
-                                                            ? "bg-[#28a745]/10"
-                                                            : test.unlocked
-                                                                ? "bg-[#0063b3]/10"
-                                                                : "bg-[#6b7280]/10"
+                                                        ? "bg-[#28a745]/10"
+                                                        : test.unlocked
+                                                            ? "bg-[#0063b3]/10"
+                                                            : "bg-[#6b7280]/10"
                                                         }`}
                                                 >
                                                     {test.completed ? (
@@ -254,15 +257,17 @@ export default function AssessmentsPage() {
                                             </div>
                                         </div>
 
-                                        <Button
-                                            className={`w-full ${test.unlocked
+                                        <Link href="/assessments/stage-tests">
+                                            <Button
+                                                className={`w-full ${test.unlocked
                                                     ? "bg-[#0063b3] hover:bg-[#0063b3]/90"
                                                     : "bg-[#6b7280] cursor-not-allowed"
-                                                }`}
-                                            disabled={!test.unlocked}
-                                        >
-                                            {test.completed ? "Retake Test" : test.unlocked ? "Start Test" : "Locked"}
-                                        </Button>
+                                                    }`}
+                                                disabled={!test.unlocked}
+                                            >
+                                                {test.completed ? "Retake Test" : test.unlocked ? "Start Test" : "Locked"}
+                                            </Button>
+                                        </Link>
 
                                         {!test.unlocked && (
                                             <p className="text-xs text-[#6b7280] text-center mt-2">
@@ -273,6 +278,45 @@ export default function AssessmentsPage() {
                                 </Card>
                             ))}
                         </div>
+                    </TabsContent>
+
+                    <TabsContent value="weekly-challenges">
+                        <Card className="border-0 shadow-sm">
+                            <CardContent className="p-8">
+                                <div className="max-w-2xl mx-auto text-center">
+                                    <div className="w-20 h-20 bg-[#f59e0b]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <RiTrophyLine className="w-10 h-10 text-[#f59e0b]" />
+                                    </div>
+                                    <h2 className="text-2xl font-bold text-[#222222] mb-2">Weekly Challenges</h2>
+                                    <p className="text-[#6b7280] mb-6">
+                                        Compete with other learners in timed challenges. Climb the leaderboard,
+                                        earn exclusive badges, and win XP rewards every week!
+                                    </p>
+
+                                    <div className="grid grid-cols-3 gap-4 mb-8">
+                                        <div className="p-4 bg-[#f4f4f4] rounded-lg">
+                                            <p className="text-2xl font-bold text-[#f59e0b]">1,243</p>
+                                            <p className="text-sm text-[#6b7280]">Participants</p>
+                                        </div>
+                                        <div className="p-4 bg-[#f4f4f4] rounded-lg">
+                                            <p className="text-2xl font-bold text-[#f59e0b]">2 days</p>
+                                            <p className="text-sm text-[#6b7280]">Remaining</p>
+                                        </div>
+                                        <div className="p-4 bg-[#f4f4f4] rounded-lg">
+                                            <p className="text-2xl font-bold text-[#f59e0b]">+500</p>
+                                            <p className="text-sm text-[#6b7280]">XP Prize</p>
+                                        </div>
+                                    </div>
+
+                                    <Link href="/assessments/weekly-challenges">
+                                        <Button size="lg" className="bg-[#f59e0b] hover:bg-[#f59e0b]/90">
+                                            <RiTrophyLine className="w-5 h-5 mr-2" />
+                                            Join This Week&apos;s Challenge
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </CardContent>
+                        </Card>
                     </TabsContent>
                 </Tabs>
             </div>
